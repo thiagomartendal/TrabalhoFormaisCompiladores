@@ -1,0 +1,55 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  /* background-color: #282c34; */
+}
+
+header {
+
+}
+
+header h1 {
+  background-color: #48D1CC;
+  color: #fff;
+  padding: 5px;
+  text-align: center;
+}
+
+section {
+
+}
+
+section #menu_lateral {
+
+}
+
+section #navegacao_topo {
+  padding: 15px;
+  text-align: center;
+}
+
+section #navegacao_topo .titulo1 {
+  color: #48D1CC;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+section #navegacao_topo #links_topo a {
+  background-color: #48D1CC;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+section #navegacao_topo #links_topo a:hover {
+  background-color: #000;
+  color: #fff;
+}
