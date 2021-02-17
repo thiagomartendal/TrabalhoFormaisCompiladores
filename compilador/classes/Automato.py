@@ -1,9 +1,11 @@
 from Estado import *
 from Transicao import *
+from Elemento import *
 
-class Automato:
+class Automato(Elemento):
 
-    def __init__(self):
+    def __init__(self, nome):
+        super(Automato, self).__init__(TipoItem.AF, nome)
         self.__estados = [] # Lista de estados, não é necessário classificar entre estado inicial e finais, pois o próprio estado já deve conhecer esta informação
         self.__transicoes = [] # Lista de transições
 
