@@ -20,7 +20,8 @@ class Transicao:
 
     # Define os estados de chegada a partir de uma lista
     def setEstadosChegada(self, estadosChegada):
-        if estadosChegada is list:
+        if type(estadosChegada) is list:
+            self.__estadosChegada.clear()
             self.__estadosChegada = [x for x in estadosChegada]
 
     # Adiciona um novo estado de chegada

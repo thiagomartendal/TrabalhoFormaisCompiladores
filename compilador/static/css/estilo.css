@@ -9,23 +9,11 @@ html, body {
   /* background-color: #282c34; */
 }
 
-header {
-
-}
-
 header h1 {
   background-color: #48D1CC;
   color: #fff;
   padding: 5px;
   text-align: center;
-}
-
-section {
-
-}
-
-section #menu_lateral {
-
 }
 
 section #navegacao_topo {
@@ -39,17 +27,159 @@ section #navegacao_topo .titulo1 {
   font-weight: bold;
 }
 
-section #navegacao_topo #links_topo a {
+section #navegacao_topo #links_topo .btn {
+  border: 0px;
   background-color: #48D1CC;
   color: #fff;
   border-radius: 5px;
   padding: 5px;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
-  text-decoration: none;
+  cursor: pointer;
+  outline: none;
 }
 
-section #navegacao_topo #links_topo a:hover {
+section #navegacao_topo #links_topo .btn:hover {
   background-color: #000;
   color: #fff;
+}
+
+section #corpo_central {
+  margin: auto;
+  width: 70%;
+  text-align: center;
+}
+
+section #corpo_central #menu_lateral {
+  border: 1px solid #48D1CC;
+  background-color: #48D1CC;
+  float: left;
+  width: 15%;
+  border-radius: 20px;
+  padding-right: 3px;
+}
+
+section #corpo_central #menu_lateral h4 {
+  font-size: 20px;
+  color: #fff;
+  padding: 5px;
+}
+
+section #corpo_central #menu_lateral hr {
+  border: 1px solid #fff;
+  width: 90%;
+  margin: auto;
+}
+
+section #corpo_central #menu_lateral .espaco {
+  padding-bottom: 15px;
+}
+
+section #corpo_central #menu_lateral .espaco a {
+  border: 1px solid #48D1CC;
+  background-color: #48D1CC;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: block;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  width: 100%;
+  color: #000;
+}
+
+section #corpo_central #menu_lateral .espaco a:hover {
+  border: 1px solid #000;
+  background-color: #000;
+  color: #fff;
+}
+
+section #corpo_central #corpo_criacao {
+  margin: auto;
+  text-align: center;
+}
+
+section #corpo_central #corpo_criacao #criar_automato {
+  display: none;
+  text-align: center;
+  margin: auto;
+  margin-left: 15%;
+}
+
+section #corpo_central #corpo_criacao #criar_automato form #estrutura_estados {
+  text-align: center;
+  margin: auto;
+}
+
+section #corpo_central #corpo_criacao #criar_automato form #estrutura_estados th {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+section #corpo_central #corpo_criacao #criar_automato form #estrutura_estados td {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+}
+
+section #corpo_central #corpo_criacao #criar_automato form #estrutura_estados #titulos_tr {
+  font-size: 20px;
+}
+
+section #corpo_central #corpo_criacao #criar_automato form .titulo {
+  font-size: 20px;
+}
+
+section .botao {
+  border: 0px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}
+
+section .botao:hover {
+  background-color: #48D1CC;
+  color: #fff;
+}
+
+section #corpo_central #corpo_criacao #criar_automato form a {
+  color: #48D1CC;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+section #corpo_central #corpo_criacao #criar_automato form a:hover {
+  color: #000;
+}
+
+section #edicao_automato {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  font-size: 20px;
+}
+
+section #edicao_automato h1 {
+  font-size: 30px;
+}
+
+section #edicao_automato h3 {
+  font-size: 20px;
+}
+
+section #edicao_automato #tabela_automato {
+  margin: auto;
+  font-size: 20px;
+}
+
+section #edicao_automato #tabela_automato td {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
 }
