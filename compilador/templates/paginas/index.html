@@ -1,4 +1,5 @@
 {% load static %}
+{% load tags_sistema %}
 <!DOCTYPE htlm>
 <html>
   <head>
@@ -6,23 +7,109 @@
       Trabalho de Linguagens Formais e Compiladores
     </title>
     <link href="{% static 'css/estilo.css' %}" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
   </head>
   <body>
     <header>
       <h1>Linguagens Formais e Compiladores</h1>
     </header>
     <section>
-      <div id="menu_lateral">
-      </div>
       <div id="navegacao_topo">
         <div class="titulo1">
           Criar Novo
         </div>
         <br />
         <div id="links_topo">
-          <a href="#">Autômato Finito</a>
-          <a href="#">Gramática Regular</a>
-          <a href="#">Expressão Regular</a>
+          <input type="button" onclick="novoAF()" value="Autômato Finito" class="btn">
+          <input type="button" onclick="novaGR()" value="Gramática Regular" class="btn">
+          <input type="button" value="Expressão Regular" class="btn">
+        </div>
+      </div>
+      <br />
+      <br />
+      <div id="corpo_central">
+        <div id="menu_lateral">
+          <h4>Itens Criados</h4>
+          {% itensCriados as itens %}
+          {% if itens %}
+          <div class="espaco">
+          {% for item in itens %}
+          {% if item.1 == 0 %}
+          <a href="/editar_automato?pos={{ item.2 }}">{{ item.0 }}: AF</a>
+          {% elif item.1 == 1 %}
+          <a href="/editar_gramatica?pos={{ item.2 }}">{{ item.0 }}: GR</a>
+          {% else %}
+          <a href="/editar_gramatica?pos=">{{ item.0 }}: ER</a>
+          {% endif %}
+          <br />
+          <br />
+          {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        <div id="corpo_criacao">
+          <div id="criar_automato">
+            <h1>Criar Autômato</h1>
+            <br />
+            <form method="post" id="form_estados">
+              {% csrf_token %}
+              {{ form }}
+              <span class="titulo">
+                <strong>Nome do autômato:</strong> <input type="text" name="nome_automato" required />
+                <br />
+                <br />
+                <strong>Simbolos do alfabeto:</strong> <input type="text" name="simbolos_alfabeto" required /> (Separe cada símbolo com vírgula).
+              </span>
+              <br />
+              <br />
+              <br />
+              <input type="button" onclick="adiconarEstado()" value="Adicionar Estado" class="botao" />
+              <input type="button" onclick="removerEstado()" value="Remover Estado" class="botao" />
+              <br />
+              <br />
+              <table id="estrutura_estados">
+                <tr id="titulos_tr">
+                  <th>Nº</th>
+                  <th>Nome</th>
+                  <th>Tipo</th>
+                </tr>
+                <tr id="linha_tabela_1">
+                  <td>1</td>
+                  <td><input type="text" name="nome_estado1" required /></td>
+                  <td>
+                    <select name="tipo_estado1">
+                      <option value="0">Inicial</option>
+                      <option value="1">Normal</option>
+                      <option value="2">Final</option>
+                      <option value="3">Inicial e Final</option>
+                    </select>
+                  </td>
+                </tr>
+              </table>
+              <input type="hidden" name="num_vals" id="num_vals" value="1" />
+              <br />
+              <input type="hidden" name="nova_gramatica" value="" />
+              <input type="submit" name="novo_automato" value="Criar Autômato" class="botao" />
+            </form>
+          </div>
+          <div id="criar_gramatica">
+            <h1>Criar Gramática</h1>
+            <br />
+            <div id="grm">
+              <form method="post">
+                {% csrf_token %}
+                {{ form }}
+                Nome da grmática: <input type="text" name="nome_gramatica" required />
+                <br />
+                <br />
+                <textarea name="entrada_gramatica"></textarea>
+                <br />
+                <br />
+                <input type="hidden" name="novo_automato" value="" />
+                <input type="submit" name="nova_gramatica" value="Criar Gramática" class="botao" required />
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </section>

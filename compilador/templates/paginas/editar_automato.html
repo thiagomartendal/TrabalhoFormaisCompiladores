@@ -24,6 +24,8 @@
         <br />
         <br />
         <form method="post">
+          {% csrf_token %}
+          {{ form }}
           <strong>Nome do autômato:</strong> <input type="text" name="nome_automato" value="{{ item.0 }}" required />
           <br />
           <br />

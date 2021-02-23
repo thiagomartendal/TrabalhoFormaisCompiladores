@@ -1,0 +1,41 @@
+{% load static %}
+{% load tags_sistema %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Editar Gramática
+    </title>
+    <link href="{% static 'css/estilo.css' %}" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <h1>Linguagens Formais e Compiladores</h1>
+    </header>
+    <section>
+      <div id="edicao_gramatica">
+        {% gramaticaSelecionada request as item %}
+        {% if item == 0 %}
+        <h1>A gramática não existe.</h1>
+        {% else %}
+        <h1>Editar Gramática</h1>
+        <br />
+        <form method="post">
+          {% csrf_token %}
+          {{ form }}
+          Nome da grmática: <input type="text" name="nome_gramatica" value="{{ item.0 }}" required />
+          <br />
+          <br />
+          <textarea name="entrada_gramatica">{{ item.1 }}</textarea>
+          <br />
+          <br />
+          <input type="hidden" value="" />
+          <input type="submit" value="Confirmar" class="botao" required />
+        </form>
+        {% endif %}
+      </div>
+    </section>
+    <footer>
+    </footer>
+  </body>
+</html>
