@@ -54,9 +54,8 @@ section #corpo_central #menu_lateral {
   border: 1px solid #48D1CC;
   background-color: #48D1CC;
   float: left;
-  width: 15%;
   border-radius: 20px;
-  padding-right: 3px;
+  padding: 10px;
 }
 
 section #corpo_central #menu_lateral h4 {
@@ -65,26 +64,17 @@ section #corpo_central #menu_lateral h4 {
   padding: 5px;
 }
 
-section #corpo_central #menu_lateral hr {
-  border: 1px solid #fff;
-  width: 90%;
-  margin: auto;
-}
-
 section #corpo_central #menu_lateral .espaco {
-  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 section #corpo_central #menu_lateral .espaco a {
   border: 1px solid #48D1CC;
   background-color: #48D1CC;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  display: block;
+  padding: 5px;
   font-size: 15px;
   font-weight: bold;
   text-decoration: none;
-  width: 100%;
   color: #000;
 }
 
@@ -158,6 +148,21 @@ section #corpo_central #corpo_criacao #criar_automato form a:hover {
   color: #000;
 }
 
+section #corpo_central #corpo_criacao #criar_gramatica {
+  display: none;
+}
+
+section #corpo_central #corpo_criacao #criar_gramatica form textarea {
+  width: 800px;
+  height: 400px;
+  resize: none;
+  outline: none;
+}
+
+section #corpo_central #corpo_criacao #criar_gramatica #grm {
+  margin-left: 150px;
+}
+
 section #edicao_automato {
   width: 80%;
   margin: auto;
@@ -182,4 +187,17 @@ section #edicao_automato #tabela_automato td {
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 15px;
+}
+
+section #edicao_gramatica {
+  padding-top: 50px;
+  margin: auto;
+  text-align: center;
+}
+
+section #edicao_gramatica form textarea {
+  width: 800px;
+  height: 400px;
+  resize: none;
+  outline: none;
 }

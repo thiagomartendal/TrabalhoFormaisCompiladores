@@ -1,11 +1,11 @@
-from Item import *
+from .Item import Item, TipoItem
 
 class Gramatica(Item):
 
     def __init__(self, nome):
         super(Gramatica, self).__init__(TipoItem.GR, nome)
         self.__producoes = {}  # Dicionario de producoes
-        self.__texto = None 
+        self.__texto = None
         self.__simbolo_inicial = None
 
     # Adiciona uma nova producao ao dicionario
@@ -22,10 +22,12 @@ class Gramatica(Item):
 
     # Gera a estrutura gramatica a partir do texto escrito pelo usuario
     def parse(self, texto):
-        
         if not texto:
             print("Texto vazio")
             return
+        self.__producoes.clear()
+        self.__texto = None
+        self.__simbolo_inicial = None
         self.__texto = texto.replace(" ", "")
         lista_de_linhas = self.__texto.splitlines()
         self.estruturaGramatica(lista_de_linhas)
@@ -33,7 +35,6 @@ class Gramatica(Item):
     # Verifica se a estrutura gramatica esta certa e gera ela
     def estruturaGramatica(self, linhas):
         tem_epsilon = False
-        
         for linha in linhas:
             if len(linha) > 0:
                 if not linha.find("->") == -1:
@@ -43,7 +44,7 @@ class Gramatica(Item):
                             chave = li[0]
                             if (linhas.index(linha) == 0):
                                 self.setSimboloInicial(li[0])
-                            
+
                             producoes = []
                             prod = li[1].split("|") # separa as producoes
 
@@ -79,10 +80,10 @@ class Gramatica(Item):
                                 else:
                                     print("Possui simbolo vazio ou mais que duas letras")
                                     return
-                            
+
                             self.adicionaProducao(chave, producoes)
-                                    
-                                    
+
+
                         else:
                             print("Simbolo antes de -> tem mais de uma letra ou nao eh maiuscula")
                             return
@@ -95,6 +96,3 @@ class Gramatica(Item):
             else:
                 print("Texto tem linha vazia")
                 return
-
-
-

@@ -3,8 +3,19 @@ if ( window.history.replaceState ) {
 }
 
 function novoAF() {
+  document.getElementById("criar_gramatica").style.display = "none"
   let x = document.getElementById("criar_automato")
-  if (x.style.display === "none") {
+  if (x.style.display === "none" || x.style.display === "") {
+    x.style.display = "block"
+  } else {
+    x.style.display = "none"
+  }
+}
+
+function novaGR() {
+  document.getElementById("criar_automato").style.display = "none"
+  let x = document.getElementById("criar_gramatica")
+  if (x.style.display === "none" || x.style.display === "") {
     x.style.display = "block"
   } else {
     x.style.display = "none"

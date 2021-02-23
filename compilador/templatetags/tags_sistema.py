@@ -59,3 +59,21 @@ def itemSelecionado(request):
         return [item.get_nome(), simbolos, estados, item.getSimbolos()]
     except IndexError:
         return 0
+
+@register.simple_tag
+def gramaticaSelecionada(request):
+    try:
+        global listaItens
+        posicao = request.GET['pos']
+        gramatica = listaItens.getItem(int(posicao))
+        txt = ""
+        dicionario = gramatica.getProducoes().items()
+        for k, v in dicionario:
+            txt += str(k)+"->"+str(v)+"\n"
+        txt = txt.replace("[", "")
+        txt = txt.replace("]", "")
+        txt = txt.replace("'", "")
+        txt = txt.replace(", ", "|")
+        return [gramatica.get_nome(), txt]
+    except IndexError:
+        return 0

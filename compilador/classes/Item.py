@@ -11,8 +11,8 @@ class Item:
     def get_tipo(self):
         return self.__tipo
 
-    def set_nome(self):
-        return self.__nome
+    def set_nome(self, nome):
+        self.__nome = nome
 
     def set_tipo(self):
         return self.__tipo
